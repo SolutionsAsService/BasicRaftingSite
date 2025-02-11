@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Adventure - Adventure Rafting Co.</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Adventure Rafting Co.</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="adventures.html">Choose Your Adventure</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="adventures">
+            <h2>Choose Your Adventure</h2>
+            <form id="adventureForm">
+                <div class="form-group">
+                    <label for="guide">Choose Your Guide</label>
+                    <select id="guide" name="guide" required>
+                        <option value="">Select a Guide</option>
+                        <option value="john">John - Expert Rafter</option>
+                        <option value="sarah">Sarah - Nature Enthusiast</option>
+                        <option value="mike">Mike - Family Adventure Specialist</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="river">Choose Your River Trip</label>
+                    <select id="river" name="river" required>
+                        <option value="">Select a River Trip</option>
+                        <option value="colorado">Colorado River - Intermediate</option>
+                        <option value="snake">Snake River - Advanced</option>
+                        <option value="yampa">Yampa River - Beginner</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="dogs">Bringing Dogs?</label>
+                    <select id="dogs" name="dogs" required>
+                        <option value="">Select an Option</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">Book Adventure</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Adventure Rafting Co. All rights reserved.</p>
+    </footer>
+</body>
+</html>
