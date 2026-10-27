@@ -16,6 +16,9 @@
 
   var gauge = document.querySelector('.gauge');
   var seasonOpen = gauge ? gauge.dataset.season === '1' : false;
+  // Read once: apply() overwrites dataset.reading on every move, so the
+  // original sample has to be captured before it can be compared against.
+  var SAMPLE = gauge ? parseInt(gauge.dataset.reading, 10) : 0;
   var VERB_RUN = seasonOpen ? 'Running' : 'Would run';
   var VERB_HIGH = seasonOpen ? 'Too high' : 'Would be too high';
   var VERB_LOW = seasonOpen ? 'Too low' : 'Would be too low';
@@ -72,6 +75,20 @@
       var st = p.querySelector('.preview__state');
       if (st) { st.textContent = res[1]; }
     });
+
+    // The heading and the eyebrow carry the same number as the summary, or
+    // the page contradicts itself the moment the gauge is dragged.
+    var sample = SAMPLE;
+    var eyebrow = document.getElementById('now-eyebrow');
+    if (eyebrow) {
+      eyebrow.textContent = reading === sample
+        ? eyebrow.dataset.sample
+        : 'Set by you to ' + comma(reading) + ' cfs';
+    }
+    var heading = document.getElementById('now-h');
+    if (heading && heading.dataset.text) {
+      heading.textContent = heading.dataset.text.replace('{n}', comma(reading));
+    }
 
     // the summary sentence
     var summary = document.getElementById('run-summary');
@@ -231,25 +248,32 @@
     return ok;
   }
 
-  /* A date outside the trip's own season, or a party bigger than one raft,
-     is the kind of thing an outfitter catches on the phone. Catch it here
-     instead, next to the total. */
-  function warnings(opt, picked, n) {
-    var out = [];
+  /* A hard constraint belongs next to the field that broke it, not in fine
+     print under the receipt: the visitor has to be able to see it while the
+     date input still has their attention. */
+  function refusals(opt, picked, n) {
+    var out = {date: '', guests: ''};
     if (picked) {
       var parts = picked.split('-');
       var mmdd = parts[1] + '-' + parts[2];
       if (mmdd < opt.dataset.from || mmdd > opt.dataset.to) {
-        out.push('That date is outside this trip\'s season, which runs ' +
-          mdLabel(opt.dataset.from) + ' to ' + mdLabel(opt.dataset.to) + '.');
+        out.date = 'That date is outside this trip\'s season, which runs ' +
+          mdLabel(opt.dataset.from) + ' to ' + mdLabel(opt.dataset.to) + '.';
       }
     }
     var seats = parseInt(opt.dataset.seats, 10);
     if (n > seats) {
-      out.push('That is more than one raft holds (' + seats +
-        ' seats) — call us and we will split the group across two boats.');
+      out.guests = 'That is more than one raft holds (' + seats +
+        ' seats) — call us and we will split the group.';
     }
     return out;
+  }
+
+  function showRefusals(opt, picked, n) {
+    var r = refusals(opt, picked, n);
+    err('date', r.date);
+    err('guests', r.guests);
+    return r;
   }
 
   function mdLabel(stamp) {
@@ -292,7 +316,13 @@
     sum.innerHTML = money(price) + ' per person &times; ' + n + ' = <b>' +
       money(total) + '</b> &middot; minimum age ' + o.dataset.minAge;
 
-    var warn = warnings(o, date.value, n);
+    // The refusals go to the fields, so the receipt stays a receipt.
+    var r = showRefusals(o, date.value, n);
+    if (r.date || r.guests) {
+      (r.date ? document.getElementById('date')
+              : document.getElementById('guests')).focus();
+      return;
+    }
     // Null-guard the channel and match the preposition to it: "email the shed
     // at", "call the shed on".
     var how = document.getElementById('contact');
@@ -309,19 +339,15 @@
       ? (mail ? '<a href="' + mail.getAttribute('href') + '">' + mail.textContent + '</a>' : '')
       : (tel ? '<a href="' + tel.getAttribute('href') + '">' + tel.textContent.trim() + '</a>' : '');
     note.innerHTML = 'On ' + when + '. This page is a concept and sent nothing — ' +
-      'to hold the date, ' + verb + ' the shed' + (want ? prep + ' ' + want : '') + '.' +
-      (warn.length ? '<br><b>' + warn.join('<br>') + '</b>' : '');
+      'to hold the date, ' + verb + ' the shed' + (want ? prep + ' ' + want : '') + '.';
 
     receipt.hidden = false;
     receipt.focus();
   });
 
-  // Validate as the visitor leaves a field, not only on submit: the browser
-  // now blocks an invalid submit itself, so this is the layer that explains it.
+  // `change` only: validating on focusout paints a field red for being
+  // tabbed through, before anything has been done wrong.
   form.addEventListener('change', function (ev) {
-    if (ev.target.matches('input, select, textarea')) { check(); }
-  });
-  form.addEventListener('focusout', function (ev) {
     if (ev.target.matches('input, select, textarea')) { check(); }
   });
 })();

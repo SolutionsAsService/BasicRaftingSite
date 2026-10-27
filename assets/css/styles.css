@@ -1,6 +1,11 @@
 /* Highwater Rafting Co.
    Type: text 18px/27 on a 34em measure (Bringhurst 66 chars); display on a
    1.414 ratio from the same base: 18 > 25.5 > 36 > 51 > 72.
+   Below the base there are only two steps, 13px for metadata and 16px for
+   controls (iOS zooms on a focus below 16px); 20px is the lede and 22px the
+   wordmark and the price. Nothing else is set by hand.
+   The gauge reading is the one deliberate exception to the top step: where a
+   gauge is on the page it is the display head, and the h1 is the step below.
    Colour: no blue. The category default is river-blue; this river is granite,
    cold water and one vermilion signal. */
 
@@ -28,7 +33,7 @@
   --fs-2: 2.25rem;
   --fs-3: 3.181rem;
   --fs-4: 4.5rem;
-  --fs-meta: 0.875rem;
+  --fs-meta: 0.8125rem;
 
   --measure: 34em;
   --gutter: clamp(1.25rem, 4vw, 2.5rem);
@@ -133,7 +138,7 @@ li { margin-bottom: 0.35em; }
 .tag {
   display: inline-block;
   font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 0.15em 0.5em;
@@ -171,7 +176,7 @@ li { margin-bottom: 0.35em; }
   text-decoration: none;
   font-family: Fraunces, Georgia, serif;
   font-weight: 800;
-  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144;
+  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 100;
   font-size: 1.375rem;
   letter-spacing: -0.02em;
   color: var(--foam);
@@ -207,7 +212,7 @@ li { margin-bottom: 0.35em; }
   min-height: 24px;
   padding: 0.35rem 0;
   font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--foam);
   text-decoration: none;
@@ -234,7 +239,7 @@ li { margin-bottom: 0.35em; }
 }
 .btn--solid { background: var(--signal); color: var(--foam); }
 .btn--solid:hover { background: var(--signal-ink); }
-.btn--sm { min-height: 40px; padding: 0.45rem 1rem; font-size: 0.9375rem; }
+.btn--sm { min-height: 40px; padding: 0.45rem 1rem; font-size: 1rem; }
 .btn--ghost { border-color: currentColor; background: transparent; }
 .btn--ghost:hover { background: var(--gorge); color: var(--foam); }
 .btn--wide { width: 100%; }
@@ -299,7 +304,7 @@ li { margin-bottom: 0.35em; }
 }
 .gauge__read span {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   color: var(--muted-lite);
@@ -325,7 +330,7 @@ li { margin-bottom: 0.35em; }
 .gauge__axis {
   display: flex; justify-content: space-between;
   font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.75rem; color: var(--muted-lite);
+  font-size: 0.8125rem; color: var(--muted-lite);
 }
 .gauge__foot {
   margin: 0.7em 0 0;
@@ -341,7 +346,7 @@ li { margin-bottom: 0.35em; }
 .gauge__ctl[hidden] { display: none; }
 .gauge__ctl label {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+  font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--muted-lite);
 }
 .gauge__ctl input[type="range"] {
@@ -379,7 +384,7 @@ li { margin-bottom: 0.35em; }
 .range__legend {
   display: flex; gap: 0.4em;
   font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   color: var(--muted);
   margin: 0;
 }
@@ -429,7 +434,7 @@ li { margin-bottom: 0.35em; }
   line-height: 1;
   color: var(--signal-ink);
 }
-.stat span { font-size: 0.9375rem; color: var(--muted); max-width: 12em; }
+.stat span { font-size: 1rem; color: var(--muted); max-width: 12em; }
 
 /* ---------- trip previews ---------- */
 .previews { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
@@ -451,12 +456,12 @@ li { margin-bottom: 0.35em; }
 .preview__class {
   grid-area: class;
   font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+  font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--deep); font-weight: 600;
   justify-self: start;
 }
-.preview__name { grid-area: name; font-family: Fraunces, Georgia, serif; font-weight: 700; font-size: 1.1875rem; }
-.preview__meta { grid-area: meta; font-size: 0.9375rem; color: var(--muted); }
+.preview__name { grid-area: name; font-family: Fraunces, Georgia, serif; font-weight: 700; font-size: 1.125rem; }
+.preview__meta { grid-area: meta; font-size: 1rem; color: var(--muted); }
 .preview__state { grid-area: state; font-size: 0.8125rem; color: var(--muted); }
 /* A state that only a colour carries is not a state in forced colours, so each
    one gets a glyph as well as words. */
@@ -495,7 +500,7 @@ li { margin-bottom: 0.35em; }
   margin: 0 0 0.4em; color: var(--muted);
 }
 .trip__class b { color: var(--gorge); }
-.trip__section { font-size: 0.9375rem; color: var(--muted); margin: 0; }
+.trip__section { font-size: 1rem; color: var(--muted); margin: 0; }
 .trip__blurb { max-width: var(--measure); }
 
 .trip__facts {
@@ -509,7 +514,7 @@ li { margin-bottom: 0.35em; }
 .trip__facts div { margin: 0; }
 .trip__facts dt {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+  font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--muted); margin-bottom: 0.15em;
 }
 .trip__facts dd { margin: 0; font-weight: 500; }
@@ -526,7 +531,7 @@ li { margin-bottom: 0.35em; }
 }
 .trip__rapids li {
   margin: 0;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   padding: 0.15em 0.6em;
   background: var(--stone-2);
   border-radius: 2px;
@@ -534,7 +539,7 @@ li { margin-bottom: 0.35em; }
 }
 
 .trip__gauge { }
-.trip__state { margin: 0; font-weight: 600; font-size: 0.9375rem; }
+.trip__state { margin: 0; font-weight: 600; font-size: 1rem; }
 .trip__state[data-state="on"] { color: var(--deep); }
 .trip__state[data-state="over"], .trip__state[data-state="low"] { color: var(--signal-ink); }
 
@@ -547,8 +552,8 @@ li { margin-bottom: 0.35em; }
   padding: clamp(1rem, 2.5vw, 1.5rem);
 }
 .guide h3 { margin-bottom: 0.15em; }
-.guide__role { font-size: 0.9375rem; color: var(--signal-ink); font-weight: 600; margin-bottom: 0.5em; }
-.guide__fav { font-size: 0.9375rem; margin-bottom: 0.75em; }
+.guide__role { font-size: 1rem; color: var(--signal-ink); font-weight: 600; margin-bottom: 0.5em; }
+.guide__fav { font-size: 1rem; margin-bottom: 0.75em; }
 .guide__line { font-size: 1rem; }
 .guide__certs {
   list-style: none; margin: 0.75rem 0 0; padding: 0;
@@ -556,7 +561,7 @@ li { margin-bottom: 0.35em; }
 }
 .guide__certs li {
   margin: 0; font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+  font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase;
   border: 1px solid var(--stone-2); border-radius: 2px; padding: 0.15em 0.45em;
   color: var(--muted);
 }
@@ -566,7 +571,7 @@ li { margin-bottom: 0.35em; }
 .specs > div { border-top: 3px solid var(--signal); padding-top: 0.85rem; }
 .specs dt {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+  font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--muted); margin-bottom: 0.3em;
 }
 .specs dd { margin: 0; }
@@ -599,7 +604,7 @@ legend {
   font-weight: 600; padding: 0; margin-bottom: 0.75rem; color: var(--gorge);
 }
 .field { display: grid; gap: 0.3rem; }
-.field label { font-weight: 600; font-size: 0.9375rem; }
+.field label { font-weight: 600; font-size: 1rem; }
 .field .hint { font-size: 0.8125rem; color: var(--muted); }
 .field input, .field select, .field textarea {
   font: inherit;
@@ -618,7 +623,7 @@ legend {
   outline-offset: 0;
 }
 .field input[aria-invalid="true"], .field select[aria-invalid="true"] { border-color: var(--signal-ink); }
-.field .err { font-size: 0.875rem; font-weight: 600; color: var(--signal-ink); min-height: 1.2em; }
+.field .err { font-size: 0.8125rem; font-weight: 600; color: var(--signal-ink); min-height: 1.2em; }
 .row2 { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); }
 
 /* the booking receipt */
@@ -644,7 +649,7 @@ legend {
   max-width: 30em;
   color: var(--gorge);
 }
-.receipt__sum { margin: 0 0 0.75em; font-size: 1.0625rem; }
+.receipt__sum { margin: 0 0 0.75em; font-size: 1rem; }
 .receipt__sum b { font-family: "IBM Plex Mono", ui-monospace, monospace; }
 
 /* ---------- footer ---------- */
@@ -654,10 +659,10 @@ legend {
   gap: clamp(1.5rem, 4vw, 2.5rem);
   grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
 }
-.foot h2 { font-size: 1.0625rem; font-family: "IBM Plex Sans", sans-serif; font-weight: 600; letter-spacing: 0; }
+.foot h2 { font-size: 1rem; font-family: "IBM Plex Sans", sans-serif; font-weight: 600; letter-spacing: 0; }
 .foot__h {
   font-family: "IBM Plex Mono", ui-monospace, monospace !important;
-  font-size: 0.75rem !important;
+  font-size: 0.8125rem !important;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted-lite);
@@ -665,7 +670,7 @@ legend {
 }
 .foot a { color: var(--stone); }
 .foot a:hover { color: var(--signal-lite); }
-.foot__tag { color: var(--muted-lite); font-size: 0.9375rem; margin-top: 0.6em; }
+.foot__tag { color: var(--muted-lite); font-size: 1rem; margin-top: 0.6em; }
 .foot__list { list-style: none; padding: 0; margin: 0; }
 .foot__list li { margin-bottom: 0.4em; }
 .foot__base {
