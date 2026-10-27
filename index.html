@@ -77,7 +77,9 @@
       <div class="gauge__ctl" hidden>
         <label for="cfs">Move the gauge</label>
         <input type="range" id="cfs" min="0" max="6000" step="20" value="2480"
-               aria-describedby="cfs-out">
+               list="cfs-stops" aria-describedby="cfs-out"
+               aria-valuetext="2,480 cubic feet per second">
+        <datalist id="cfs-stops"><option value="1600"></option><option value="3200"></option><option value="3400"></option><option value="3600"></option><option value="4800"></option><option value="5500"></option></datalist>
         <output id="cfs-out" for="cfs">2,480 cfs</output>
       </div>
       <p class="gauge__foot"><span class="tag tag--sample">Sample reading</span>
@@ -91,7 +93,7 @@
     <div class="head">
       <p class="eyebrow">Sample reading, 11 Jun 2026 · 2,480 cfs</p>
       <h2 id="now-h">What the river takes at 2,480 cfs</h2>
-      <p class="prose">Every trip has a window: a low flow it needs and a high flow it cannot be guided above. That window is the whole business. <span id="run-summary">At this reading, 5 of 6 would run and Pine Creek would be closed.</span></p>
+      <p class="prose">Every trip has a window: a low flow it needs and a high flow it cannot be guided above. That window is the whole business. <span id="run-summary">At the sample reading of 2,480 cfs (11 Jun 2026), 5 of 6 trips would run and Pine Creek would be closed: it needs the river to drop before it can be guided.</span></p>
       <p class="prose muted">Trips run 15 May – 31 August. The gauge below is a sample reading from 11 Jun 2026, so every state on this page is what that flow would do — not what the river is doing now.</p>
     </div>
     <ul class="previews"><li class="preview" data-state="on"

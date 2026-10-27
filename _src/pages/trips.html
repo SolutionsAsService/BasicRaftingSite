@@ -17,7 +17,10 @@
       <p class="eyebrow">The gauge is the whole business</p>
       <h2>Read this before you pick a date</h2>
       <p class="prose">The Arkansas is free-flowing: no dam above Salida, so the water is whatever the snowpack and the weather say it is. Each trip below carries the flow window it can be guided in — a low end and a high end, on the same scale as the gauge.</p>
-      <p class="prose"><span id="run-summary">At the sample reading of {{gaugeNow}} cfs, {{nRunning}} of {{nTrips}} trips are running and {{closedNames}} is closed: it needs the river to drop before it can be guided.</span></p>
+      <p class="prose"><span id="run-summary">{{runSummary}}</span></p>
+      <p class="prose">Move the gauge to see it change, or jump to two readings worth seeing:
+        <a href="?cfs={{tryLow}}">{{tryLow}} cfs</a>, where all {{tryLowN}} run, and
+        <a href="?cfs={{tryHigh}}">{{tryHigh}} cfs</a>, where {{tryHighN}} does.</p>
       <p class="prose muted">{{season}} season. Runoff peaks {{peak}}. {{peakNote}}</p>
     </div>
     {{gauge}}

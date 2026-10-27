@@ -54,7 +54,9 @@ body {
 h1, h2, h3, h4 {
   font-family: Fraunces, Georgia, "Times New Roman", serif;
   font-weight: 700;
-  font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 100;
+  /* opsz tracks the size it is used at, not a house flavour: 144 for the
+     display steps, 100 for the smaller headings. */
+  font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 144;
   line-height: 1.08;
   letter-spacing: -0.015em;
   margin: 0 0 0.5em;
@@ -62,7 +64,7 @@ h1, h2, h3, h4 {
 }
 h1 { font-size: clamp(2.3rem, 6.4vw, var(--fs-3)); }
 h2 { font-size: clamp(1.75rem, 4.2vw, var(--fs-2)); }
-h3 { font-size: var(--fs-1); line-height: 1.15; }
+h3 { font-size: var(--fs-1); line-height: 1.15; font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 100; }
 h4 { font-size: 1.125rem; font-family: "IBM Plex Sans", sans-serif; font-weight: 600; letter-spacing: 0; }
 
 p { margin: 0 0 1em; }
@@ -112,7 +114,7 @@ li { margin-bottom: 0.35em; }
   padding-inline: var(--gutter);
 }
 
-.prose { max-width: var(--measure); }
+.prose { max-width: var(--measure); text-wrap: pretty; }
 .prose--wide { max-width: 46em; }
 
 .muted { color: var(--muted); }
@@ -344,7 +346,7 @@ li { margin-bottom: 0.35em; }
 }
 .gauge__ctl input[type="range"] {
   width: 100%;
-  min-height: 24px;
+  min-height: 44px;   /* the one control demanding fine motor control */
   accent-color: var(--signal);
   cursor: pointer;
 }
@@ -451,19 +453,30 @@ li { margin-bottom: 0.35em; }
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--deep); font-weight: 600;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
   justify-self: start;
-  padding-block: 0.2em;
 }
 .preview__name { grid-area: name; font-family: Fraunces, Georgia, serif; font-weight: 700; font-size: 1.1875rem; }
 .preview__meta { grid-area: meta; font-size: 0.9375rem; color: var(--muted); }
 .preview__state { grid-area: state; font-size: 0.8125rem; color: var(--muted); }
+/* A state that only a colour carries is not a state in forced colours, so each
+   one gets a glyph as well as words. */
+.preview__state::before { margin-right: 0.35em; }
+.preview[data-state="on"] .preview__state::before { content: "\2713"; color: var(--deep); }
+.preview[data-state="over"] .preview__state::before,
+.preview[data-state="low"] .preview__state::before { content: "\2715"; color: var(--signal-ink); }
 .preview__go { grid-area: go; font-size: 1.5rem; color: var(--signal-ink); }
 .preview[data-state="over"] a, .preview[data-state="low"] a { border-left-color: var(--stone-2); }
 .preview[data-state="over"] .preview__name, .preview[data-state="low"] .preview__name { color: var(--muted); }
 
-/* ---------- trips ---------- */
+/* Rotated caps are for the wide layout only: below 900px a vertical label
+   costs the row its height and the reader their place. */
+@media (min-width: 900px) {
+  .preview__class {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    padding-block: 0.2em;
+  }
+}
 .trips { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(1.25rem, 3vw, 2rem); }
 .trip {
   border: var(--rule);
@@ -543,7 +556,7 @@ li { margin-bottom: 0.35em; }
 }
 .guide__certs li {
   margin: 0; font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase;
+  font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
   border: 1px solid var(--stone-2); border-radius: 2px; padding: 0.15em 0.45em;
   color: var(--muted);
 }
@@ -559,10 +572,22 @@ li { margin-bottom: 0.35em; }
 .specs dd { margin: 0; }
 
 .checklist { list-style: none; padding: 0; margin: 0; }
-.checklist li { position: relative; padding-left: 1.6em; margin-bottom: 0.5em; }
+/* Set, not painted: a background vanishes when the user forces colours, and a
+   glyph inherits CanvasText and stays. Laid out by the box, not by arithmetic
+   on one font stack. */
+.checklist li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55em;
+  margin-bottom: 0.5em;
+}
 .checklist li::before {
-  content: ""; position: absolute; left: 0; top: 0.45em;
-  width: 0.6em; height: 0.6em; background: var(--signal); border-radius: 1px;
+  content: "\25A0";
+  flex: none;
+  width: 1em;
+  text-align: center;
+  font-size: 0.7em;
+  color: var(--signal);
 }
 
 /* ---------- forms ---------- */
@@ -659,7 +684,8 @@ legend {
 .nf__code {
   font-family: Fraunces, Georgia, serif;
   font-weight: 800;
-  font-size: clamp(4rem, 18vw, 9rem);
+  font-size: clamp(4rem, 14vw, var(--fs-4));
+  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144;
   line-height: 0.9;
   color: var(--signal);
   margin: 0 0 0.1em;
@@ -679,6 +705,15 @@ legend {
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Windows High Contrast and friends: paint nothing that only a background can
+   carry, and let the focus ring take the system highlight. */
+@media (forced-colors: active) {
+  .checklist li::before { color: CanvasText; }
+  .tag, .btn { border-color: CanvasText; }
+  :focus-visible { outline-color: Highlight; }
+  .g-band, .range__ok, .g-now, .range__now { forced-color-adjust: none; }
 }
 
 @media print {

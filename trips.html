@@ -69,7 +69,10 @@
       <p class="eyebrow">The gauge is the whole business</p>
       <h2>Read this before you pick a date</h2>
       <p class="prose">The Arkansas is free-flowing: no dam above Salida, so the water is whatever the snowpack and the weather say it is. Each trip below carries the flow window it can be guided in — a low end and a high end, on the same scale as the gauge.</p>
-      <p class="prose"><span id="run-summary">At the sample reading of 2,480 cfs, 5 of 6 trips are running and Pine Creek is closed: it needs the river to drop before it can be guided.</span></p>
+      <p class="prose"><span id="run-summary">At the sample reading of 2,480 cfs (11 Jun 2026), 5 of 6 trips would run and Pine Creek would be closed: it needs the river to drop before it can be guided.</span></p>
+      <p class="prose">Move the gauge to see it change, or jump to two readings worth seeing:
+        <a href="?cfs=900">900 cfs</a>, where all 6 run, and
+        <a href="?cfs=5,200">5,200 cfs</a>, where 1 does.</p>
       <p class="prose muted">15 May – 31 August season. Runoff peaks early June. Runoff peaks in early June: the water is high, cold and fast. Pine Creek closes first; the Gorge opens last.</p>
     </div>
     <div class="gauge" data-reading="2480" data-season="0">
@@ -85,7 +88,9 @@
       <div class="gauge__ctl" hidden>
         <label for="cfs">Move the gauge</label>
         <input type="range" id="cfs" min="0" max="6000" step="20" value="2480"
-               aria-describedby="cfs-out">
+               list="cfs-stops" aria-describedby="cfs-out"
+               aria-valuetext="2,480 cubic feet per second">
+        <datalist id="cfs-stops"><option value="1600"></option><option value="3200"></option><option value="3400"></option><option value="3600"></option><option value="4800"></option><option value="5500"></option></datalist>
         <output id="cfs-out" for="cfs">2,480 cfs</output>
       </div>
       <p class="gauge__foot"><span class="tag tag--sample">Sample reading</span>

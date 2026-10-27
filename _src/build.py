@@ -68,6 +68,11 @@ def gauge_block():
     """The river gauge: one axis, a reading, and what that reading closes."""
     g = outfitter["gauge"]
     now = g["reading"]
+    # A tick at every flow where a trip stops being guidable, so the hand
+    # meets the boundary instead of gliding through it.
+    stops = "".join(
+        f'<option value="{hi}"></option>'
+        for hi in sorted({t["gauge"][1] for t in trips}))
     bands = "".join(
         f'<span class="g-band g-band--{b["label"]}" style="--from:{pct(0)}%;--to:{pct(b["to"])}%"></span>'
         for b in g["bands"]
@@ -87,7 +92,9 @@ def gauge_block():
       <div class="gauge__ctl" hidden>
         <label for="cfs">Move the gauge</label>
         <input type="range" id="cfs" min="0" max="{SCALE_MAX}" step="20" value="{now}"
-               aria-describedby="cfs-out">
+               list="cfs-stops" aria-describedby="cfs-out"
+               aria-valuetext="{now:,} cubic feet per second">
+        <datalist id="cfs-stops">{stops}</datalist>
         <output id="cfs-out" for="cfs">{now:,} cfs</output>
       </div>
       <p class="gauge__foot"><span class="tag tag--sample">Sample reading</span>
@@ -195,6 +202,25 @@ def tokens():
     running = [t for t in trips if runs_now(t)[0] == "on"]
     closed = [t for t in trips if runs_now(t)[0] != "on"]
     season_str = f'{o["season"]["start"]} – {o["season"]["end"]}'
+    now_reading = o["gauge"]["reading"]
+    observed = o["gauge"]["observed"]
+    n_run, n_all = len(running), len(trips)
+    closed_names = ", ".join(t["name"] for t in closed) or "none"
+    # The summary has to carry the reading's own tense and date: "5 of 6 are
+    # running" printed in October is a number pretending to be a river.
+    # Two readings worth trying, computed from the trips rather than picked:
+    # the highest flow every trip can still be guided at, and one near the top
+    # of the axis where only the Gorge survives.
+    try_low = max(t["gauge"][0] for t in trips)
+    try_high = max(t["gauge"][1] for t in trips) - 300
+    summary = (
+        f'At the sample reading of {now_reading:,} cfs ({observed}), {n_run} of '
+        f'{n_all} trips would run and {closed_names} would be closed: it needs '
+        f'the river to drop before it can be guided.'
+        if not SEASON_OPEN else
+        f'At {now_reading:,} cfs, {n_run} of {n_all} trips are running and '
+        f'{closed_names} is closed: it needs the river to drop before it can be '
+        f'guided.')
     return {
         "{{name}}": e(o["name"]),
         "{{shortName}}": e(o["shortName"]),
@@ -208,6 +234,11 @@ def tokens():
         "{{season}}": f'{e(o["season"]["start"])} – {e(o["season"]["end"])}',
         "{{peak}}": e(o["season"]["peak"]),
         "{{peakNote}}": e(o["season"]["peakNote"]),
+        "{{runSummary}}": e(summary),
+        "{{tryLow}}": f'{try_low:,}',
+        "{{tryHigh}}": f'{try_high:,}',
+        "{{tryLowN}}": str(len([t for t in trips if runs_now(t, try_low)[0] == "on"])),
+        "{{tryHighN}}": str(len([t for t in trips if runs_now(t, try_high)[0] == "on"])),
         "{{gaugeNow}}": f'{o["gauge"]["reading"]:,}',
         "{{gaugeDate}}": e(o["gauge"]["observed"]),
         "{{seasonState}}": "in season" if SEASON_OPEN else "out of season today",
@@ -254,6 +285,38 @@ def expand(text):
     for k, v in tokens().items():
         text = text.replace(k, v)
     return text
+
+
+def token_hex(name):
+    """Read a brand colour out of the stylesheet.
+
+    The mark is rendered in three places — the favicon, the inline SVG in the
+    layout, and the generated social card — and a colour typed in more than one
+    of them will drift. The stylesheet is the one that says it; the favicon is
+    written from it.
+    """
+    css = (ROOT / "assets" / "css" / "styles.css").read_text(encoding="utf-8")
+    m = re.search(rf"--{name}:\s*(#[0-9A-Fa-f]{{6}})\s*;", css)
+    if not m:
+        sys.exit(f"brand colour --{name} not found in assets/css/styles.css")
+    return m.group(1)
+
+
+def write_favicon():
+    gorge, stone, signal = (token_hex(n) for n in ("gorge", "stone", "signal"))
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="5" fill="{gorge}"/>
+  <g fill="{stone}">
+    <path d="M7 7h4v18H7z"/>
+    <path d="M13 11h4v14h-4z"/>
+    <path d="M19 15h4v10h-4z"/>
+    <path d="M25 19h2v6h-2z"/>
+  </g>
+  <path d="M4 22.5h24" stroke="{signal}" stroke-width="2.5"/>
+</svg>
+"""
+    (ROOT / "assets" / "images" / "favicon.svg").write_text(svg, encoding="utf-8")
+    return gorge, stone, signal
 
 
 # --------------------------------------------------------------------------
@@ -309,6 +372,8 @@ if bad:
 
 for slug, doc in built.items():
     (ROOT / f"{slug}.html").write_text(doc, encoding="utf-8", newline="\n")
+
+print("mark:", "favicon.svg written from --gorge/--stone/--signal", write_favicon())
 
 print(f"built {len(built)} pages: {', '.join(sorted(built))}")
 print(f"  {len(trips)} trips, {len(guides)} guides, gauge {outfitter['gauge']['reading']:,} cfs")

@@ -78,12 +78,18 @@
     if (summary && trips.length) {
       var n = trips.length - closed.length;
       var verb = seasonOpen ? 'are running' : 'would run';
+      // "is would be closed" is what a naive plural gives; the tense and the
+      // number are one phrase, not two.
+      var closedVerb = seasonOpen
+        ? (closed.length > 1 ? ' are closed' : ' is closed')
+        : ' would be closed';
       var tail = closed.length
-        ? ' and ' + closed.join(', ') + (closed.length > 1 ? ' are' : ' is') +
-          (seasonOpen ? ' closed' : ' would be closed')
-        : ' — all ' + trips.length + ' trips are open at this reading';
-      summary.textContent = 'At this reading, ' + n + ' of ' + trips.length +
-        ' ' + verb + tail + '.';
+        ? ' and ' + closed.join(', ') + closedVerb
+        : ' — all ' + trips.length + ' open at this reading';
+      // The number goes in the sentence, not only in the graphic: a live
+      // region that says "at this reading" has no antecedent.
+      summary.textContent = 'At ' + comma(reading) + ' cfs, ' + n + ' of ' +
+        trips.length + ' ' + verb + tail + '.';
     }
   }
 
@@ -99,13 +105,56 @@
       slider.value = v;
       apply(v);
     }
+    announce(slider.value);   // on load, and on the ?cfs= path, not only on drag
+
+    // Snap on release to the nearest flow where a trip stops being guidable.
+    // The hand should feel the boundary, not glide through it.
+    slider.addEventListener('change', function () {
+      var v = parseInt(slider.value, 10);
+      var stops = [];
+      Array.prototype.forEach.call(
+        document.querySelectorAll('#cfs-stops option'), function (o) {
+          stops.push(parseInt(o.value, 10));
+        });
+      if (!stops.length) { return; }
+      var near = stops.reduce(function (best, s) {
+        return Math.abs(s - v) < Math.abs(best - v) ? s : best;
+      }, stops[0]);
+      if (Math.abs(near - v) <= 80) {
+        slider.value = near;
+        var out = document.getElementById('cfs-out');
+        if (out) { out.textContent = comma(near) + ' cfs'; }
+        apply(near);
+        announce(near);
+      }
+    });
 
     slider.addEventListener('input', function () {
       var v = parseInt(slider.value, 10);
       var out = document.getElementById('cfs-out');
       if (out) { out.textContent = comma(v) + ' cfs'; }
       apply(v);
+      announce(v);
     });
+  }
+
+  /* One announcement, not two. The slider's valuetext carries the reading and
+     the count, which is what a screen reader needs while dragging; the summary
+     is a live region for the same change and would say it all over again. */
+  function announce(value) {
+    if (!slider) { return; }
+    var v = parseInt(value, 10);
+    slider.setAttribute('aria-valuetext',
+      comma(v) + ' cubic feet per second, ' + countOpen() + ' of ' +
+      document.querySelectorAll('.trip').length + ' trips open');
+  }
+
+  function countOpen() {
+    var n = 0;
+    Array.prototype.forEach.call(document.querySelectorAll('.trip'), function (t) {
+      if (t.dataset.state === 'on') { n++; }
+    });
+    return n;
   }
 
   // ------------------------------------------------------------- booking ---
@@ -125,6 +174,22 @@
     var match = sel.querySelector('option[value="' + CSS.escape(wantedTrip) + '"]');
     if (match) { sel.value = wantedTrip; }
   }
+
+  var mode = 'any';
+  var emailEl = document.getElementById('email');
+  var phoneEl = document.getElementById('phone');
+
+  /* Which channel is required follows the choice, so the browser's own guard
+     agrees with ours. Nobody is asked for a phone number they cannot use. */
+  function syncRequired() {
+    var how = document.getElementById('contact');
+    mode = how ? how.value : 'any';
+    emailEl.required = (mode === 'email');
+    phoneEl.required = (mode === 'call' || mode === 'text');
+  }
+  syncRequired();
+  var contact = document.getElementById('contact');
+  if (contact) { contact.addEventListener('change', syncRequired); }
 
   function err(id, msg) {
     var box = document.getElementById(id + '-err');
@@ -147,15 +212,22 @@
     ok = err('guests', gmsg) && ok;
 
     var nameEl = document.getElementById('name');
-    ok = err('name', nameEl.value.trim() ? '' : 'We need a name to call back.') && ok;
+    ok = err('name', nameEl.value.trim() ? '' : 'We need a name to put the trip under.') && ok;
 
-    var emailEl = document.getElementById('email');
-    ok = err('email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)
-      ? '' : 'We need an email we can reply to.') && ok;
-
-    var phoneEl = document.getElementById('phone');
-    ok = err('phone', phoneEl.value.replace(/\D/g, '').length >= 10
-      ? '' : 'We need a phone number with at least ten digits.') && ok;
+    var hasEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value);
+    var hasPhone = phoneEl.value.replace(/\D/g, '').length >= 10;
+    var emailMsg = '', phoneMsg = '';
+    if (mode === 'email' && !hasEmail) {
+      emailMsg = 'You asked us to reply by email, so we need one.';
+    } else if ((mode === 'call' || mode === 'text') && !hasPhone) {
+      phoneMsg = 'A ' + (mode === 'call' ? 'call' : 'text') +
+        ' needs a number with at least ten digits.';
+    } else if (mode === 'any' && !hasEmail && !hasPhone) {
+      // "whichever is fastest" still needs one way back, but only one message
+      emailMsg = 'Give us an email or a phone number — whichever you would rather use.';
+    }
+    ok = err('email', emailMsg) && ok;
+    ok = err('phone', phoneMsg) && ok;
     return ok;
   }
 
@@ -221,15 +293,35 @@
       money(total) + '</b> &middot; minimum age ' + o.dataset.minAge;
 
     var warn = warnings(o, date.value, n);
-    note.innerHTML = 'On ' + when + '. This page is a concept and sent nothing: ' +
-      'call the shed to hold the date.' +
+    // Null-guard the channel and match the preposition to it: "email the shed
+    // at", "call the shed on".
+    var how = document.getElementById('contact');
+    var m = how ? how.value : 'any';
+    var verb = m === 'email' ? 'email' : (m === 'text' ? 'text' : (m === 'call' ? 'call' : 'reach'));
+    var prep = m === 'email' ? ' at' : ' on';
+    // The number lives in the masthead, not in a string in this file: one
+    // source of truth, read off the page.
+    // The number lives in the masthead, not in a string in this file: one
+    // source of truth, read off the page.
+    var tel = document.querySelector('.masthead .tel');
+    var mail = document.querySelector('.foot a[href^="mailto:"]');
+    var want = m === 'email'
+      ? (mail ? '<a href="' + mail.getAttribute('href') + '">' + mail.textContent + '</a>' : '')
+      : (tel ? '<a href="' + tel.getAttribute('href') + '">' + tel.textContent.trim() + '</a>' : '');
+    note.innerHTML = 'On ' + when + '. This page is a concept and sent nothing — ' +
+      'to hold the date, ' + verb + ' the shed' + (want ? prep + ' ' + want : '') + '.' +
       (warn.length ? '<br><b>' + warn.join('<br>') + '</b>' : '');
 
     receipt.hidden = false;
     receipt.focus();
   });
 
+  // Validate as the visitor leaves a field, not only on submit: the browser
+  // now blocks an invalid submit itself, so this is the layer that explains it.
   form.addEventListener('change', function (ev) {
+    if (ev.target.matches('input, select, textarea')) { check(); }
+  });
+  form.addEventListener('focusout', function (ev) {
     if (ev.target.matches('input, select, textarea')) { check(); }
   });
 })();

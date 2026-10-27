@@ -58,14 +58,14 @@
     <div class="head">
       <p class="eyebrow">Season 15 May – 31 August</p>
       <h1>Book a trip</h1>
-      <p class="lede">Pick a trip and a party size and we will add it up on the spot. To hold a date for real, call <a href="tel:+17195550148">(719) 555-0148</a> — that is the fastest way and the only one that reaches a person today.</p>
+      <p class="lede">Pick a trip and a party size and we will add it up on the spot. To hold a date for real, call, text or email <a href="tel:+17195550148">(719) 555-0148</a> — we answer in season and reply to text and email within a day.</p>
     </div>
   </div>
 </section>
 
 <section class="band band--stone">
   <div class="wrap split">
-    <form class="form" id="booking" novalidate>
+    <form class="form" id="booking">
       <fieldset>
         <legend>The trip</legend>
         <div class="field">
@@ -92,21 +92,31 @@
       </fieldset>
 
       <fieldset>
-        <legend>Who to call back</legend>
+        <legend>How to reach you</legend>
         <div class="field">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-err">
           <p class="err" id="name-err" aria-live="polite"></p>
         </div>
+        <div class="field">
+          <label for="contact">How should we reply?</label>
+          <select id="contact" name="contact" aria-describedby="contact-hint">
+            <option value="any">Whichever is fastest</option>
+            <option value="call">Phone call</option>
+            <option value="text">Text message</option>
+            <option value="email">Email</option>
+          </select>
+          <p class="hint" id="contact-hint">None of these is required until you pick it — but we do need one way back to you.</p>
+        </div>
         <div class="row2">
           <div class="field">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-err">
+            <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-err">
             <p class="err" id="email-err" aria-live="polite"></p>
           </div>
           <div class="field">
             <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" autocomplete="tel" required aria-describedby="phone-err">
+            <input type="tel" id="phone" name="phone" autocomplete="tel" aria-describedby="phone-err">
             <p class="err" id="phone-err" aria-live="polite"></p>
           </div>
         </div>
@@ -133,8 +143,8 @@
       <div style="margin-top:1.5rem">
         <p class="eyebrow">Straight to a person</p>
         <p class="prose" style="font-size:1.375rem;font-weight:600;margin-bottom:0.25rem"><a href="tel:+17195550148">(719) 555-0148</a></p>
-        <p class="prose muted">Seven days a week in season. If we miss you, we call back the same day.</p>
-        <p class="prose"><a href="mailto:trips@highwaterrafting.example">trips@highwaterrafting.example</a></p>
+        <p class="prose muted">Seven days a week in season. Call, text or email — whichever suits you. Miss us and we reply within a day.</p>
+        <p class="prose"><a href="tel:+17195550148">(719) 555-0148</a> · <a href="mailto:trips@highwaterrafting.example">trips@highwaterrafting.example</a></p>
       </div>
     </div>
   </div>
@@ -160,7 +170,9 @@
       <div class="gauge__ctl" hidden>
         <label for="cfs">Move the gauge</label>
         <input type="range" id="cfs" min="0" max="6000" step="20" value="2480"
-               aria-describedby="cfs-out">
+               list="cfs-stops" aria-describedby="cfs-out"
+               aria-valuetext="2,480 cubic feet per second">
+        <datalist id="cfs-stops"><option value="1600"></option><option value="3200"></option><option value="3400"></option><option value="3600"></option><option value="4800"></option><option value="5500"></option></datalist>
         <output id="cfs-out" for="cfs">2,480 cfs</output>
       </div>
       <p class="gauge__foot"><span class="tag tag--sample">Sample reading</span>
