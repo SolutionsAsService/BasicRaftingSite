@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/adventures", "destination": "/book", "permanent": true },
+    { "source": "/adventures.html", "destination": "/book", "permanent": true },
+    { "source": "/contact", "destination": "/visit", "permanent": true },
+    { "source": "/contact.html", "destination": "/visit", "permanent": true },
+    { "source": "/index.html", "destination": "/", "permanent": true }
+  ]
+}

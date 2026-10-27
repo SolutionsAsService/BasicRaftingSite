@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}} · {{name}}</title>
+<meta name="description" content="{{description}}">
+<meta name="theme-color" content="#0E2429">
+<link rel="canonical" href="https://basic-rafting-site.vercel.app/{{slug}}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{title}} · {{name}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:site_name" content="{{name}}">
+<meta property="og:image" content="https://basic-rafting-site.vercel.app/assets/images/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Highwater Rafting Co. — Read the river. Then run it.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://basic-rafting-site.vercel.app/assets/images/og-card.png">
+<link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,0..100,0..1&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body class="page-{{slug}}">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="masthead__in">
+    <a class="mark" href="/" aria-label="{{name}}, home">
+      <svg class="mark__glyph" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect x="0" y="0" width="32" height="32" rx="5"></rect>
+        <g>
+          <path d="M7 7h4v18H7z"></path>
+          <path d="M13 11h4v14h-4z"></path>
+          <path d="M19 15h4v10h-4z"></path>
+          <path d="M25 19h2v6h-2z"></path>
+        </g>
+        <path class="mark__line" d="M4 22.5h24"></path>
+      </svg>
+      <span class="mark__word">Highwater</span>
+    </a>
+    <nav class="nav" aria-label="Primary">{{nav}}</nav>
+    <div class="masthead__act">
+      <a class="tel" href="{{phoneHref}}">{{phone}}</a>
+      <a class="btn btn--solid btn--sm" href="/book">Book a trip</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+{{content}}
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div class="foot__brand">
+      <a class="mark mark--foot" href="/" aria-label="{{name}}, home">
+        <svg class="mark__glyph" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <rect x="0" y="0" width="32" height="32" rx="5"></rect>
+          <g>
+            <path d="M7 7h4v18H7z"></path>
+            <path d="M13 11h4v14h-4z"></path>
+            <path d="M19 15h4v10h-4z"></path>
+            <path d="M25 19h2v6h-2z"></path>
+          </g>
+          <path class="mark__line" d="M4 22.5h24"></path>
+        </svg>
+        <span class="mark__word">Highwater</span>
+      </a>
+      <p class="foot__tag">{{tagline}}</p>
+    </div>
+    <div class="foot__col">
+      <h2 class="foot__h">Basecamp</h2>
+      <p>{{address}}</p>
+      <p><a href="{{phoneHref}}">{{phone}}</a><br><a href="mailto:{{email}}">{{email}}</a></p>
+    </div>
+    <div class="foot__col">
+      <h2 class="foot__h">The river</h2>
+      <ul class="foot__list">
+        <li><a href="/trips">Trips &amp; prices</a></li>
+        <li><a href="/safety">Safety &amp; gear</a></li>
+        <li><a href="/guides">Guides</a></li>
+        <li><a href="/visit">Basecamp &amp; hours</a></li>
+      </ul>
+    </div>
+    <div class="foot__col">
+      <h2 class="foot__h">Season</h2>
+      <p>{{season}}</p>
+      <p class="muted">{{seasonNote}}</p>
+    </div>
+  </div>
+  <div class="wrap foot__base">
+    <p>&copy; {{year}} {{name}} · {{place}}</p>
+    <p class="foot__status">{{statusNote}}</p>
+  </div>
+</footer>
+
+<script src="/js/site.js" defer></script>
+</body>
+</html>

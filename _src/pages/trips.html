@@ -1,0 +1,59 @@
+<!-- title: Trips and prices -->
+<!-- description: Six guided trips on the Arkansas River: class rating, duration, miles, minimum age, season, price and the flow window each one needs. -->
+
+<section class="band band--stone" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">{{nTrips}} trips · {{river}}</p>
+      <h1>Trips &amp; prices</h1>
+      <p class="lede">Every price is per person and includes the shuttle, the guide, a PFD, a helmet and a paddle. Nothing is added at the shed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--gorge">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">The gauge is the whole business</p>
+      <h2>Read this before you pick a date</h2>
+      <p class="prose">The Arkansas is free-flowing: no dam above Salida, so the water is whatever the snowpack and the weather say it is. Each trip below carries the flow window it can be guided in — a low end and a high end, on the same scale as the gauge.</p>
+      <p class="prose"><span id="run-summary">At the sample reading of {{gaugeNow}} cfs, {{nRunning}} of {{nTrips}} trips are running and {{closedNames}} is closed: it needs the river to drop before it can be guided.</span></p>
+      <p class="prose muted">{{season}} season. Runoff peaks {{peak}}. {{peakNote}}</p>
+    </div>
+    {{gauge}}
+  </div>
+</section>
+
+<section class="band band--stone">
+  <div class="wrap">
+    <ul class="trips">{{trips}}</ul>
+  </div>
+</section>
+
+<section class="band band--paper">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Before you book</p>
+      <h2>Which one is yours?</h2>
+    </div>
+    <div class="split">
+      <div class="prose">
+        <h3>First time on whitewater</h3>
+        <p>Start with Browns Canyon. It is class III: real rapids, named and continuous, with a pool after each one to catch your breath. Minimum age 8.</p>
+      </div>
+      <div class="prose">
+        <h3>Young kids, or someone who would rather watch</h3>
+        <p>The Buena Vista Float is six miles of flat water with a few riffles. Minimum age 3, dogs ride free, and nobody has to paddle if they do not want to.</p>
+      </div>
+      <div class="prose">
+        <h3>You have paddled before</h3>
+        <p>The Numbers is twelve miles of class III–IV with no let-up, and Pine Creek is five miles of class IV that runs best when the rest of the river is dropping. Both will be the hardest water you have guided.</p>
+      </div>
+      <div class="prose">
+        <h3>The biggest day we sell</h3>
+        <p>Royal Gorge: class IV–V under the highest bridge in North America. We ask about your experience before we confirm, and we turn people away. Minimum age 16.</p>
+      </div>
+    </div>
+    <p style="margin-top:2rem"><a class="btn btn--solid" href="/book">Book a trip</a></p>
+  </div>
+</section>

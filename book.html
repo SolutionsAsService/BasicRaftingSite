@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a trip · Highwater Rafting Co.</title>
+<meta name="description" content="Choose a trip, a date and a party size and see the total before you call. Booking form for Highwater Rafting Co., Salida, Colorado.">
+<meta name="theme-color" content="#0E2429">
+<link rel="canonical" href="https://basic-rafting-site.vercel.app/book">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Book a trip · Highwater Rafting Co.">
+<meta property="og:description" content="Choose a trip, a date and a party size and see the total before you call. Booking form for Highwater Rafting Co., Salida, Colorado.">
+<meta property="og:site_name" content="Highwater Rafting Co.">
+<meta property="og:image" content="https://basic-rafting-site.vercel.app/assets/images/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Highwater Rafting Co. — Read the river. Then run it.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://basic-rafting-site.vercel.app/assets/images/og-card.png">
+<link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,0..100,0..1&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body class="page-book">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="masthead__in">
+    <a class="mark" href="/" aria-label="Highwater Rafting Co., home">
+      <svg class="mark__glyph" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect x="0" y="0" width="32" height="32" rx="5"></rect>
+        <g>
+          <path d="M7 7h4v18H7z"></path>
+          <path d="M13 11h4v14h-4z"></path>
+          <path d="M19 15h4v10h-4z"></path>
+          <path d="M25 19h2v6h-2z"></path>
+        </g>
+        <path class="mark__line" d="M4 22.5h24"></path>
+      </svg>
+      <span class="mark__word">Highwater</span>
+    </a>
+    <nav class="nav" aria-label="Primary"><a href="/trips">Trips</a><a href="/guides">Guides</a><a href="/safety">Safety</a><a href="/visit">Basecamp</a></nav>
+    <div class="masthead__act">
+      <a class="tel" href="tel:+17195550148">(719) 555-0148</a>
+      <a class="btn btn--solid btn--sm" href="/book">Book a trip</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- title: Book a trip -->
+<!-- description: Choose a trip, a date and a party size and see the total before you call. Booking form for Highwater Rafting Co., Salida, Colorado. -->
+
+<section class="band band--stone" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Season 15 May – 31 August</p>
+      <h1>Book a trip</h1>
+      <p class="lede">Pick a trip and a party size and we will add it up on the spot. To hold a date for real, call <a href="tel:+17195550148">(719) 555-0148</a> — that is the fastest way and the only one that reaches a person today.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--stone">
+  <div class="wrap split">
+    <form class="form" id="booking" novalidate>
+      <fieldset>
+        <legend>The trip</legend>
+        <div class="field">
+          <label for="trip">Which trip</label>
+          <select id="trip" name="trip" required aria-describedby="trip-hint trip-err">
+            <option value="">Choose a trip</option>
+            <option value="float" data-price="59" data-min-age="3" data-dogs="1" data-klass="I–II" data-miles="6" data-duration="2 hours" data-section="Arkansas River, Buena Vista to Ruby Mountain" data-note="Dogs ride free on this one. Bring a harness." data-from="05-15" data-to="08-31" data-seats="8" data-dog-low="0">Buena Vista Float — Class I–II, 2 hours, $59 per person</option><option value="browns" data-price="89" data-min-age="8" data-dogs="1" data-klass="III" data-miles="10" data-duration="4 hours" data-section="Arkansas River, Hecla Junction to Ruby Mountain" data-note="Dogs welcome at low water. Ask when you book." data-from="05-15" data-to="08-31" data-seats="7" data-dog-low="1800">Browns Canyon — Class III, 4 hours, $89 per person</option><option value="numbers" data-price="139" data-min-age="12" data-dogs="0" data-klass="III–IV" data-miles="12" data-duration="7 hours" data-section="Arkansas River, Granite to Buena Vista" data-note="" data-from="06-01" data-to="08-15" data-seats="6" data-dog-low="0">The Numbers — Class III–IV, 7 hours, $139 per person</option><option value="pine" data-price="129" data-min-age="14" data-dogs="0" data-klass="IV" data-miles="5" data-duration="3 hours" data-section="Arkansas River, Granite to Numbers put-in" data-note="" data-from="07-01" data-to="08-31" data-seats="5" data-dog-low="0">Pine Creek — Class IV, 3 hours, $129 per person</option><option value="gorge" data-price="219" data-min-age="16" data-dogs="0" data-klass="IV–V" data-miles="10" data-duration="8 hours" data-section="Arkansas River, Parkdale to Canon City" data-note="" data-from="06-01" data-to="08-31" data-seats="6" data-dog-low="0">Royal Gorge — Class IV–V, 8 hours, $219 per person</option><option value="granite" data-price="449" data-min-age="10" data-dogs="1" data-klass="III" data-miles="18" data-duration="2 days" data-section="Arkansas River, Granite to Buena Vista, with a night on the bank" data-note="Dogs welcome. They sleep in the camp, not the raft." data-from="06-01" data-to="08-31" data-seats="6" data-dog-low="0">Granite Camp — Class III, 2 days, $449 per person</option>
+          </select>
+          <p class="hint" id="trip-hint">Prices are per person. Minimum ages are on the trips page.</p>
+          <p class="err" id="trip-err" aria-live="polite"></p>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required aria-describedby="date-err">
+            <p class="err" id="date-err" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="guests">How many</label>
+            <input type="number" id="guests" name="guests" min="1" max="24" step="1" value="2" required aria-describedby="guests-err">
+            <p class="err" id="guests-err" aria-live="polite"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Who to call back</legend>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-err">
+          <p class="err" id="name-err" aria-live="polite"></p>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-err">
+            <p class="err" id="email-err" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" required aria-describedby="phone-err">
+            <p class="err" id="phone-err" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="notes">Anything we should know</label>
+          <textarea id="notes" name="notes" rows="3" aria-describedby="notes-hint"></textarea>
+          <p class="hint" id="notes-hint">Medical conditions, swimming confidence, a dog, a PFD size outside the usual range.</p>
+        </div>
+      </fieldset>
+
+      <div>
+        <button class="btn btn--solid btn--wide" type="submit">Add it up</button>
+        <p class="hint" style="margin-top:0.6rem">Nothing is charged here and nothing is sent to a booking system.</p>
+      </div>
+    </form>
+
+    <div>
+      <div class="receipt" id="receipt" hidden role="region" aria-labelledby="receipt-h" aria-live="polite" tabindex="-1">
+        <p class="receipt__h" id="receipt-h">Your trip</p>
+        <p class="receipt__line" id="receipt-line"></p>
+        <p class="receipt__sum" id="receipt-sum"></p>
+        <p class="muted" id="receipt-note"></p>
+      </div>
+      <div style="margin-top:1.5rem">
+        <p class="eyebrow">Straight to a person</p>
+        <p class="prose" style="font-size:1.375rem;font-weight:600;margin-bottom:0.25rem"><a href="tel:+17195550148">(719) 555-0148</a></p>
+        <p class="prose muted">Seven days a week in season. If we miss you, we call back the same day.</p>
+        <p class="prose"><a href="mailto:trips@highwaterrafting.example">trips@highwaterrafting.example</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--gorge">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Before you choose a date</p>
+      <h2>Check the gauge first</h2>
+      <p class="prose">Runoff peaks early June. Runoff peaks in early June: the water is high, cold and fast. Pine Creek closes first; the Gorge opens last. Pick the trip for the water, not the date, and ask us to move you if the reading moves.</p>
+    </div>
+    <div class="gauge" data-reading="2480" data-season="0">
+      <p class="gauge__eyebrow">Arkansas River at Salida</p>
+      <p class="gauge__read"><b>2,480</b><span>cfs</span></p>
+      <div class="gauge__scale" aria-hidden="true">
+        <span class="g-band g-band--low" style="--from:0.0%;--to:11.67%"></span><span class="g-band g-band--running" style="--from:0.0%;--to:53.33%"></span><span class="g-band g-band--high" style="--from:0.0%;--to:100.0%"></span>
+        <span class="g-now" style="--at:41.33%"></span>
+      </div>
+      <div class="gauge__axis" aria-hidden="true">
+        <span>0</span><span>2,000</span><span>4,000</span><span>6,000</span>
+      </div>
+      <div class="gauge__ctl" hidden>
+        <label for="cfs">Move the gauge</label>
+        <input type="range" id="cfs" min="0" max="6000" step="20" value="2480"
+               aria-describedby="cfs-out">
+        <output id="cfs-out" for="cfs">2,480 cfs</output>
+      </div>
+      <p class="gauge__foot"><span class="tag tag--sample">Sample reading</span>
+        11 Jun 2026 · USGS 07091200 (Arkansas River at Salida, CO)</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div class="foot__brand">
+      <a class="mark mark--foot" href="/" aria-label="Highwater Rafting Co., home">
+        <svg class="mark__glyph" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <rect x="0" y="0" width="32" height="32" rx="5"></rect>
+          <g>
+            <path d="M7 7h4v18H7z"></path>
+            <path d="M13 11h4v14h-4z"></path>
+            <path d="M19 15h4v10h-4z"></path>
+            <path d="M25 19h2v6h-2z"></path>
+          </g>
+          <path class="mark__line" d="M4 22.5h24"></path>
+        </svg>
+        <span class="mark__word">Highwater</span>
+      </a>
+      <p class="foot__tag">Read the river. Then run it.</p>
+    </div>
+    <div class="foot__col">
+      <h2 class="foot__h">Basecamp</h2>
+      <p>7420 W US Highway 50<br>Salida, CO 81201</p>
+      <p><a href="tel:+17195550148">(719) 555-0148</a><br><a href="mailto:trips@highwaterrafting.example">trips@highwaterrafting.example</a></p>
+    </div>
+    <div class="foot__col">
+      <h2 class="foot__h">The river</h2>
+      <ul class="foot__list">
+        <li><a href="/trips">Trips &amp; prices</a></li>
+        <li><a href="/safety">Safety &amp; gear</a></li>
+        <li><a href="/guides">Guides</a></li>
+        <li><a href="/visit">Basecamp &amp; hours</a></li>
+      </ul>
+    </div>
+    <div class="foot__col">
+      <h2 class="foot__h">Season</h2>
+      <p>15 May – 31 August</p>
+      <p class="muted">Basecamp is staffed 15 May to 31 August. Off-season, leave a message and we call back within a day.</p>
+    </div>
+  </div>
+  <div class="wrap foot__base">
+    <p>&copy; 2026 Highwater Rafting Co. · Salida, Colorado</p>
+    <p class="foot__status">Fictional outfitter and placeholder details. Concept site.</p>
+  </div>
+</footer>
+
+<script src="/js/site.js" defer></script>
+</body>
+</html>

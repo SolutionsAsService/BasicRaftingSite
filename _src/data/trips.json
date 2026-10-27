@@ -1,0 +1,176 @@
+[
+  {
+    "id": "float",
+    "name": "Buena Vista Float",
+    "section": "Arkansas River, Buena Vista to Ruby Mountain",
+    "klass": "I–II",
+    "klassName": "Easy",
+    "klassNote": "Flat water with a few riffles. You paddle when you feel like it.",
+    "duration": "2 hours",
+    "daypart": "Half day",
+    "price": 59,
+    "minAge": 3,
+    "dogs": true,
+    "dogNote": "Dogs ride free on this one. Bring a harness.",
+    "gauge": [
+      350,
+      3200
+    ],
+    "season": "15 May – 31 Aug",
+    "miles": 6,
+    "seats": 8,
+    "blurb": "Six miles of gentle water under the Collegiate Peaks. For small kids, grandparents, and anyone who would rather look at the mountains than at the next rapid.",
+    "rapids": [
+      "Fisherman's Bridge",
+      "Ruby Mountain riffle"
+    ],
+    "seasonFrom": "05-15",
+    "seasonTo": "08-31"
+  },
+  {
+    "id": "browns",
+    "name": "Browns Canyon",
+    "section": "Arkansas River, Hecla Junction to Ruby Mountain",
+    "klass": "III",
+    "klassName": "Moderate",
+    "klassNote": "Continuous read-and-run rapids with a pool between each one.",
+    "duration": "4 hours",
+    "daypart": "Half day",
+    "price": 89,
+    "minAge": 8,
+    "dogs": true,
+    "dogNote": "Dogs welcome at low water. Ask when you book.",
+    "gauge": [
+      600,
+      4800
+    ],
+    "season": "15 May – 31 Aug",
+    "miles": 10,
+    "seats": 7,
+    "blurb": "The trip this river is known for. Ten miles of granite walls, named rapids and room to breathe between them. Most people's first real whitewater.",
+    "rapids": [
+      "Zoom Flume",
+      "Widowmaker",
+      "Seidel's Suckhole",
+      "The Wall"
+    ],
+    "featured": true,
+    "seasonFrom": "05-15",
+    "seasonTo": "08-31",
+    "dogLow": 1800
+  },
+  {
+    "id": "numbers",
+    "name": "The Numbers",
+    "section": "Arkansas River, Granite to Buena Vista",
+    "klass": "III–IV",
+    "klassName": "Intermediate",
+    "klassNote": "Steep, technical and continuous. You paddle as a team or you swim.",
+    "duration": "7 hours",
+    "daypart": "Full day",
+    "price": 139,
+    "minAge": 12,
+    "dogs": false,
+    "gauge": [
+      800,
+      3600
+    ],
+    "season": "1 Jun – 15 Aug",
+    "miles": 12,
+    "seats": 6,
+    "blurb": "Twelve miles named for the highway mileposts that count them off. The closest thing to a roller coaster that a river will give you without a motor.",
+    "rapids": [
+      "#4 Haystack",
+      "#5 Toilet Bowl",
+      "#6 Hell's Hole"
+    ],
+    "featured": true,
+    "seasonFrom": "06-01",
+    "seasonTo": "08-15"
+  },
+  {
+    "id": "pine",
+    "name": "Pine Creek",
+    "section": "Arkansas River, Granite to Numbers put-in",
+    "klass": "IV",
+    "klassName": "Advanced",
+    "klassNote": "Big drops, tight lines, no room to drift. Best when the river drops.",
+    "duration": "3 hours",
+    "daypart": "Half day",
+    "price": 129,
+    "minAge": 14,
+    "dogs": false,
+    "gauge": [
+      500,
+      1600
+    ],
+    "season": "1 Jul – 31 Aug",
+    "miles": 5,
+    "seats": 5,
+    "blurb": "Five miles, four big drops, and a canyon so narrow the sun only reaches it at noon. Runs best late in the season, when the rest of the river is falling.",
+    "rapids": [
+      "Tower Drop",
+      "Shark's Tooth",
+      "Pine Creek Falls"
+    ],
+    "seasonFrom": "07-01",
+    "seasonTo": "08-31"
+  },
+  {
+    "id": "gorge",
+    "name": "Royal Gorge",
+    "section": "Arkansas River, Parkdale to Canon City",
+    "klass": "IV–V",
+    "klassName": "Expert",
+    "klassNote": "Class V at high water. You will be asked about your experience.",
+    "duration": "8 hours",
+    "daypart": "Full day",
+    "price": 219,
+    "minAge": 16,
+    "dogs": false,
+    "gauge": [
+      900,
+      5500
+    ],
+    "season": "1 Jun – 31 Aug",
+    "miles": 10,
+    "seats": 6,
+    "blurb": "Ten miles under the highest suspension bridge in North America, through a canyon a thousand feet deep. The biggest water we guide, and the only trip we turn people away from.",
+    "rapids": [
+      "Sledgehammer",
+      "Boat Eater",
+      "Sunshine Falls"
+    ],
+    "featured": true,
+    "seasonFrom": "06-01",
+    "seasonTo": "08-31"
+  },
+  {
+    "id": "granite",
+    "name": "Granite Camp",
+    "section": "Arkansas River, Granite to Buena Vista, with a night on the bank",
+    "klass": "III",
+    "klassName": "Moderate",
+    "klassNote": "Two days of class III, with time to swim and fish between rapids.",
+    "duration": "2 days",
+    "daypart": "Overnight",
+    "price": 449,
+    "minAge": 10,
+    "dogs": true,
+    "dogNote": "Dogs welcome. They sleep in the camp, not the raft.",
+    "gauge": [
+      700,
+      3400
+    ],
+    "season": "1 Jun – 31 Aug",
+    "miles": 18,
+    "seats": 6,
+    "blurb": "Two days, eighteen miles, one night camped on the bank above Clear Creek. We haul the food, the tents and the fire pan; you haul nothing.",
+    "rapids": [
+      "Clear Creek",
+      "The Numbers, top half"
+    ],
+    "seasonFrom": "06-01",
+    "seasonTo": "08-31"
+  }
+]

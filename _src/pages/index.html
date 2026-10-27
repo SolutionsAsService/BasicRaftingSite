@@ -1,0 +1,86 @@
+<!-- title: Whitewater on the Arkansas River, out of Salida -->
+<!-- description: Six guided rafting trips on the Arkansas River out of Salida, Colorado. Class ratings, prices, minimum ages, and the flow window each trip needs. -->
+
+<section class="hero">
+  <div class="wrap hero__in">
+    <div>
+      <p class="eyebrow">{{place}} · {{river}}</p>
+      <h1>The Arkansas, run by people who read it for a living.</h1>
+      <p class="hero__lede">{{nTrips}} guided trips on one free-flowing river — from a two-hour float under the Collegiate Peaks to ten miles beneath the Royal Gorge bridge. Boats in the water at Salida since {{founded}}.</p>
+      <div class="hero__acts">
+        <a class="btn btn--solid" href="/book">Book a trip</a>
+        <a class="btn btn--ghost" href="/trips">See all {{nTrips}} trips</a>
+      </div>
+    </div>
+    {{gauge}}
+  </div>
+</section>
+
+<section class="band band--stone" aria-labelledby="now-h">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Sample reading, {{gaugeDate}} · {{gaugeNow}} cfs</p>
+      <h2 id="now-h">What the river takes at {{gaugeNow}} cfs</h2>
+      <p class="prose">Every trip has a window: a low flow it needs and a high flow it cannot be guided above. That window is the whole business. <span id="run-summary">At this reading, {{nRunning}} of {{nTrips}} would run and {{closedNames}} would be closed.</span></p>
+      <p class="prose muted">{{seasonLine}}</p>
+    </div>
+    <ul class="previews">{{previews}}</ul>
+  </div>
+</section>
+
+<section class="band band--paper" aria-labelledby="how-h">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">How a trip runs</p>
+      <h2 id="how-h">Four hours, start to finish</h2>
+    </div>
+    <ol class="specs">
+      <div>
+        <dt>1 · Basecamp, 30 minutes</dt>
+        <dd><p>Meet at the shed, sign in, get a PFD and helmet that fits. Change rooms and lockers are on site. Leave the car keys in the box.</p></dd>
+      </div>
+      <div>
+        <dt>2 · The talk, 15 minutes</dt>
+        <dd><p>Your guide covers the four paddle commands, what to do if you go in, and the swim position. This is not a formality; it is the part that matters if the day goes sideways.</p></dd>
+      </div>
+      <div>
+        <dt>3 · On the water</dt>
+        <dd><p>Shuttle to the put-in, launch, and paddle as a crew. Rapids are called out loud and in advance, so you learn to read them as you run them.</p></dd>
+      </div>
+      <div>
+        <dt>4 · Back at the shed</dt>
+        <dd><p>Take-off, gear returned, dry bag returned to you. Most half-day trips are back at basecamp by early afternoon; full days by five.</p></dd>
+      </div>
+    </ol>
+  </div>
+</section>
+
+<section class="band band--gorge" aria-labelledby="why-h">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Why us</p>
+      <h2 id="why-h">One river, {{founded}} to now</h2>
+      <p class="prose">We do not run three rivers in three states. We run the Arkansas, and we have run it for {{founded}}-onwards seasons, which is why we know which stretch to move you to when the gauge moves.</p>
+      <p class="prose muted">{{tagline}}</p>
+    </div>
+    <div>
+      <p class="eyebrow">On the record</p>
+      <ul class="checklist">{{creds}}</ul>
+      <ul class="stats" style="margin-top:1.5rem">{{promise}}</ul>
+    </div>
+  </div>
+</section>
+
+<section class="band band--stone" aria-labelledby="cta-h">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Season {{season}}</p>
+      <h2 id="cta-h">Pick a trip, or just call</h2>
+      <p class="prose">Trips run {{season}}, with runoff peaking {{peak}}. {{peakNote}}</p>
+    </div>
+    <div>
+      <a class="btn btn--solid btn--wide" href="/book">Book a trip</a>
+      <p class="prose" style="margin-top:1rem">Prefer to talk it through? <a href="{{phoneHref}}">{{phone}}</a>, seven days a week in season.</p>
+    </div>
+  </div>
+</section>

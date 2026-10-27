@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trips and prices · Highwater Rafting Co.</title>
+<meta name="description" content="Six guided trips on the Arkansas River: class rating, duration, miles, minimum age, season, price and the flow window each one needs.">
+<meta name="theme-color" content="#0E2429">
+<link rel="canonical" href="https://basic-rafting-site.vercel.app/trips">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Trips and prices · Highwater Rafting Co.">
+<meta property="og:description" content="Six guided trips on the Arkansas River: class rating, duration, miles, minimum age, season, price and the flow window each one needs.">
+<meta property="og:site_name" content="Highwater Rafting Co.">
+<meta property="og:image" content="https://basic-rafting-site.vercel.app/assets/images/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Highwater Rafting Co. — Read the river. Then run it.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://basic-rafting-site.vercel.app/assets/images/og-card.png">
+<link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,0..100,0..1&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body class="page-trips">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="masthead__in">
+    <a class="mark" href="/" aria-label="Highwater Rafting Co., home">
+      <svg class="mark__glyph" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect x="0" y="0" width="32" height="32" rx="5"></rect>
+        <g>
+          <path d="M7 7h4v18H7z"></path>
+          <path d="M13 11h4v14h-4z"></path>
+          <path d="M19 15h4v10h-4z"></path>
+          <path d="M25 19h2v6h-2z"></path>
+        </g>
+        <path class="mark__line" d="M4 22.5h24"></path>
+      </svg>
+      <span class="mark__word">Highwater</span>
+    </a>
+    <nav class="nav" aria-label="Primary"><a href="/trips">Trips</a><a href="/guides">Guides</a><a href="/safety">Safety</a><a href="/visit">Basecamp</a></nav>
+    <div class="masthead__act">
+      <a class="tel" href="tel:+17195550148">(719) 555-0148</a>
+      <a class="btn btn--solid btn--sm" href="/book">Book a trip</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- title: Trips and prices -->
+<!-- description: Six guided trips on the Arkansas River: class rating, duration, miles, minimum age, season, price and the flow window each one needs. -->
+
+<section class="band band--stone" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">6 trips · the Arkansas River</p>
+      <h1>Trips &amp; prices</h1>
+      <p class="lede">Every price is per person and includes the shuttle, the guide, a PFD, a helmet and a paddle. Nothing is added at the shed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--gorge">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">The gauge is the whole business</p>
+      <h2>Read this before you pick a date</h2>
+      <p class="prose">The Arkansas is free-flowing: no dam above Salida, so the water is whatever the snowpack and the weather say it is. Each trip below carries the flow window it can be guided in — a low end and a high end, on the same scale as the gauge.</p>
+      <p class="prose"><span id="run-summary">At the sample reading of 2,480 cfs, 5 of 6 trips are running and Pine Creek is closed: it needs the river to drop before it can be guided.</span></p>
+      <p class="prose muted">15 May – 31 August season. Runoff peaks early June. Runoff peaks in early June: the water is high, cold and fast. Pine Creek closes first; the Gorge opens last.</p>
+    </div>
+    <div class="gauge" data-reading="2480" data-season="0">
+      <p class="gauge__eyebrow">Arkansas River at Salida</p>
+      <p class="gauge__read"><b>2,480</b><span>cfs</span></p>
+      <div class="gauge__scale" aria-hidden="true">
+        <span class="g-band g-band--low" style="--from:0.0%;--to:11.67%"></span><span class="g-band g-band--running" style="--from:0.0%;--to:53.33%"></span><span class="g-band g-band--high" style="--from:0.0%;--to:100.0%"></span>
+        <span class="g-now" style="--at:41.33%"></span>
+      </div>
+      <div class="gauge__axis" aria-hidden="true">
+        <span>0</span><span>2,000</span><span>4,000</span><span>6,000</span>
+      </div>
+      <div class="gauge__ctl" hidden>
+        <label for="cfs">Move the gauge</label>
+        <input type="range" id="cfs" min="0" max="6000" step="20" value="2480"
+               aria-describedby="cfs-out">
+        <output id="cfs-out" for="cfs">2,480 cfs</output>
+      </div>
+      <p class="gauge__foot"><span class="tag tag--sample">Sample reading</span>
+        11 Jun 2026 · USGS 07091200 (Arkansas River at Salida, CO)</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--stone">
+  <div class="wrap">
+    <ul class="trips"><li class="trip" id="trip-float" data-state="on"
+        data-lo="350" data-hi="3200" data-dog-low="0"
+        data-dogs="1" data-note="Dogs ride free on this one. Bring a harness."
+        data-age="3" data-px="59" data-seats="8"
+        data-from="05-15" data-to="08-31">
+      <div class="trip__head">
+        <p class="trip__class"><b>Class I–II</b> Easy</p>
+        <h3>Buena Vista Float</h3>
+        <p class="trip__section">Arkansas River, Buena Vista to Ruby Mountain</p>
+      </div>
+      <dl class="trip__facts">
+        <div><dt>Duration</dt><dd>2 hours</dd></div>
+        <div><dt>Miles</dt><dd>6</dd></div>
+        <div><dt>Minimum age</dt><dd>3</dd></div>
+        <div><dt>Season</dt><dd>15 May – 31 Aug</dd></div>
+        <div><dt>Price</dt><dd class="price">$59 <span>per person</span></dd></div>
+      </dl>
+      <p class="trip__blurb">Six miles of gentle water under the Collegiate Peaks. For small kids, grandparents, and anyone who would rather look at the mountains than at the next rapid.</p>
+      <ul class="trip__rapids"><li>Fisherman&#x27;s Bridge</li><li>Ruby Mountain riffle</li></ul>
+      <div class="trip__gauge">
+        <p class="trip__state" data-state="on">Would run · 2,480 of 3,200 cfs</p>
+        <div class="range" aria-hidden="true">
+        <span class="range__ok" style="--lo:5.83%;--hi:53.33%"></span>
+        <span class="range__now" style="--at:41.33%"></span>
+      </div>
+      <p class="range__legend"><span>350</span><span class="sr-only"> to </span><span>3,200 cfs</span></p>
+      </div>
+      <p class="trip__tags"><span class="tag tag--dog">Dogs welcome</span></p>
+      <a class="btn btn--solid" href="book?trip=float">Book Buena Vista Float</a>
+    </li><li class="trip" id="trip-browns" data-state="on"
+        data-lo="600" data-hi="4800" data-dog-low="1800"
+        data-dogs="1" data-note="Dogs welcome at low water. Ask when you book."
+        data-age="8" data-px="89" data-seats="7"
+        data-from="05-15" data-to="08-31">
+      <div class="trip__head">
+        <p class="trip__class"><b>Class III</b> Moderate</p>
+        <h3>Browns Canyon</h3>
+        <p class="trip__section">Arkansas River, Hecla Junction to Ruby Mountain</p>
+      </div>
+      <dl class="trip__facts">
+        <div><dt>Duration</dt><dd>4 hours</dd></div>
+        <div><dt>Miles</dt><dd>10</dd></div>
+        <div><dt>Minimum age</dt><dd>8</dd></div>
+        <div><dt>Season</dt><dd>15 May – 31 Aug</dd></div>
+        <div><dt>Price</dt><dd class="price">$89 <span>per person</span></dd></div>
+      </dl>
+      <p class="trip__blurb">The trip this river is known for. Ten miles of granite walls, named rapids and room to breathe between them. Most people&#x27;s first real whitewater.</p>
+      <ul class="trip__rapids"><li>Zoom Flume</li><li>Widowmaker</li><li>Seidel&#x27;s Suckhole</li><li>The Wall</li></ul>
+      <div class="trip__gauge">
+        <p class="trip__state" data-state="on">Would run · 2,480 of 4,800 cfs</p>
+        <div class="range" aria-hidden="true">
+        <span class="range__ok" style="--lo:10.0%;--hi:80.0%"></span>
+        <span class="range__now" style="--at:41.33%"></span>
+      </div>
+      <p class="range__legend"><span>600</span><span class="sr-only"> to </span><span>4,800 cfs</span></p>
+      </div>
+      <p class="trip__tags"><span class="tag tag--dog">Dogs under 1,800 cfs</span></p>
+      <a class="btn btn--solid" href="book?trip=browns">Book Browns Canyon</a>
+    </li><li class="trip" id="trip-numbers" data-state="on"
+        data-lo="800" data-hi="3600" data-dog-low="0"
+        data-dogs="0" data-note=""
+        data-age="12" data-px="139" data-seats="6"
+        data-from="06-01" data-to="08-15">
+      <div class="trip__head">
+        <p class="trip__class"><b>Class III–IV</b> Intermediate</p>
+        <h3>The Numbers</h3>
+        <p class="trip__section">Arkansas River, Granite to Buena Vista</p>
+      </div>
+      <dl class="trip__facts">
+        <div><dt>Duration</dt><dd>7 hours</dd></div>
+        <div><dt>Miles</dt><dd>12</dd></div>
+        <div><dt>Minimum age</dt><dd>12</dd></div>
+        <div><dt>Season</dt><dd>1 Jun – 15 Aug</dd></div>
+        <div><dt>Price</dt><dd class="price">$139 <span>per person</span></dd></div>
+      </dl>
+      <p class="trip__blurb">Twelve miles named for the highway mileposts that count them off. The closest thing to a roller coaster that a river will give you without a motor.</p>
+      <ul class="trip__rapids"><li>#4 Haystack</li><li>#5 Toilet Bowl</li><li>#6 Hell&#x27;s Hole</li></ul>
+      <div class="trip__gauge">
+        <p class="trip__state" data-state="on">Would run · 2,480 of 3,600 cfs</p>
+        <div class="range" aria-hidden="true">
+        <span class="range__ok" style="--lo:13.33%;--hi:60.0%"></span>
+        <span class="range__now" style="--at:41.33%"></span>
+      </div>
+      <p class="range__legend"><span>800</span><span class="sr-only"> to </span><span>3,600 cfs</span></p>
+      </div>
+      <p class="trip__tags"><span class="tag tag--no">No dogs</span></p>
+      <a class="btn btn--solid" href="book?trip=numbers">Book The Numbers</a>
+    </li><li class="trip" id="trip-pine" data-state="over"
+        data-lo="500" data-hi="1600" data-dog-low="0"
+        data-dogs="0" data-note=""
+        data-age="14" data-px="129" data-seats="5"
+        data-from="07-01" data-to="08-31">
+      <div class="trip__head">
+        <p class="trip__class"><b>Class IV</b> Advanced</p>
+        <h3>Pine Creek</h3>
+        <p class="trip__section">Arkansas River, Granite to Numbers put-in</p>
+      </div>
+      <dl class="trip__facts">
+        <div><dt>Duration</dt><dd>3 hours</dd></div>
+        <div><dt>Miles</dt><dd>5</dd></div>
+        <div><dt>Minimum age</dt><dd>14</dd></div>
+        <div><dt>Season</dt><dd>1 Jul – 31 Aug</dd></div>
+        <div><dt>Price</dt><dd class="price">$129 <span>per person</span></dd></div>
+      </dl>
+      <p class="trip__blurb">Five miles, four big drops, and a canyon so narrow the sun only reaches it at noon. Runs best late in the season, when the rest of the river is falling.</p>
+      <ul class="trip__rapids"><li>Tower Drop</li><li>Shark&#x27;s Tooth</li><li>Pine Creek Falls</li></ul>
+      <div class="trip__gauge">
+        <p class="trip__state" data-state="over">Would be too high — runs to 1,600 cfs</p>
+        <div class="range" aria-hidden="true">
+        <span class="range__ok" style="--lo:8.33%;--hi:26.67%"></span>
+        <span class="range__now" style="--at:41.33%"></span>
+      </div>
+      <p class="range__legend"><span>500</span><span class="sr-only"> to </span><span>1,600 cfs</span></p>
+      </div>
+      <p class="trip__tags"><span class="tag tag--no">No dogs</span></p>
+      <a class="btn btn--solid" href="book?trip=pine">Book Pine Creek</a>
+    </li><li class="trip" id="trip-gorge" data-state="on"
+        data-lo="900" data-hi="5500" data-dog-low="0"
+        data-dogs="0" data-note=""
+        data-age="16" data-px="219" data-seats="6"
+        data-from="06-01" data-to="08-31">
+      <div class="trip__head">
+        <p class="trip__class"><b>Class IV–V</b> Expert</p>
+        <h3>Royal Gorge</h3>
+        <p class="trip__section">Arkansas River, Parkdale to Canon City</p>
+      </div>
+      <dl class="trip__facts">
+        <div><dt>Duration</dt><dd>8 hours</dd></div>
+        <div><dt>Miles</dt><dd>10</dd></div>
+        <div><dt>Minimum age</dt><dd>16</dd></div>
+        <div><dt>Season</dt><dd>1 Jun – 31 Aug</dd></div>
+        <div><dt>Price</dt><dd class="price">$219 <span>per person</span></dd></div>
+      </dl>
+      <p class="trip__blurb">Ten miles under the highest suspension bridge in North America, through a canyon a thousand feet deep. The biggest water we guide, and the only trip we turn people away from.</p>
+      <ul class="trip__rapids"><li>Sledgehammer</li><li>Boat Eater</li><li>Sunshine Falls</li></ul>
+      <div class="trip__gauge">
+        <p class="trip__state" data-state="on">Would run · 2,480 of 5,500 cfs</p>
+        <div class="range" aria-hidden="true">
+        <span class="range__ok" style="--lo:15.0%;--hi:91.67%"></span>
+        <span class="range__now" style="--at:41.33%"></span>
+      </div>
+      <p class="range__legend"><span>900</span><span class="sr-only"> to </span><span>5,500 cfs</span></p>
+      </div>
+      <p class="trip__tags"><span class="tag tag--no">No dogs</span></p>
+      <a class="btn btn--solid" href="book?trip=gorge">Book Royal Gorge</a>
+    </li><li class="trip" id="trip-granite" data-state="on"
+        data-lo="700" data-hi="3400" data-dog-low="0"
+        data-dogs="1" data-note="Dogs welcome. They sleep in the camp, not the raft."
+        data-age="10" data-px="449" data-seats="6"
+        data-from="06-01" data-to="08-31">
+      <div class="trip__head">
+        <p class="trip__class"><b>Class III</b> Moderate</p>
+        <h3>Granite Camp</h3>
+        <p class="trip__section">Arkansas River, Granite to Buena Vista, with a night on the bank</p>
+      </div>
+      <dl class="trip__facts">
+        <div><dt>Duration</dt><dd>2 days</dd></div>
+        <div><dt>Miles</dt><dd>18</dd></div>
+        <div><dt>Minimum age</dt><dd>10</dd></div>
+        <div><dt>Season</dt><dd>1 Jun – 31 Aug</dd></div>
+        <div><dt>Price</dt><dd class="price">$449 <span>per person</span></dd></div>
+      </dl>
+      <p class="trip__blurb">Two days, eighteen miles, one night camped on the bank above Clear Creek. We haul the food, the tents and the fire pan; you haul nothing.</p>
+      <ul class="trip__rapids"><li>Clear Creek</li><li>The Numbers, top half</li></ul>
+      <div class="trip__gauge">
+        <p class="trip__state" data-state="on">Would run · 2,480 of 3,400 cfs</p>
+        <div class="range" aria-hidden="true">
+        <span class="range__ok" style="--lo:11.67%;--hi:56.67%"></span>
+        <span class="range__now" style="--at:41.33%"></span>
+      </div>
+      <p class="range__legend"><span>700</span><span class="sr-only"> to </span><span>3,400 cfs</span></p>
+      </div>
+      <p class="trip__tags"><span class="tag tag--dog">Dogs welcome</span></p>
+      <a class="btn btn--solid" href="book?trip=granite">Book Granite Camp</a>
+    </li></ul>
+  </div>
+</section>
+
+<section class="band band--paper">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Before you book</p>
+      <h2>Which one is yours?</h2>
+    </div>
+    <div class="split">
+      <div class="prose">
+        <h3>First time on whitewater</h3>
+        <p>Start with Browns Canyon. It is class III: real rapids, named and continuous, with a pool after each one to catch your breath. Minimum age 8.</p>
+      </div>
+      <div class="prose">
+        <h3>Young kids, or someone who would rather watch</h3>
+        <p>The Buena Vista Float is six miles of flat water with a few riffles. Minimum age 3, dogs ride free, and nobody has to paddle if they do not want to.</p>
+      </div>
+      <div class="prose">
+        <h3>You have paddled before</h3>
+        <p>The Numbers is twelve miles of class III–IV with no let-up, and Pine Creek is five miles of class IV that runs best when the rest of the river is dropping. Both will be the hardest water you have guided.</p>
+      </div>
+      <div class="prose">
+        <h3>The biggest day we sell</h3>
+        <p>Royal Gorge: class IV–V under the highest bridge in North America. We ask about your experience before we confirm, and we turn people away. Minimum age 16.</p>
+      </div>
+    </div>
+    <p style="margin-top:2rem"><a class="btn btn--solid" href="/book">Book a trip</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div class="foot__brand">
+      <a class="mark mark--foot" href="/" aria-label="Highwater Rafting Co., home">
+        <svg class="mark__glyph" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <rect x="0" y="0" width="32" height="32" rx="5"></rect>
+          <g>
+            <path d="M7 7h4v18H7z"></path>
+            <path d="M13 11h4v14h-4z"></path>
+            <path d="M19 15h4v10h-4z"></path>
+            <path d="M25 19h2v6h-2z"></path>
+          </g>
+          <path class="mark__line" d="M4 22.5h24"></path>
+        </svg>
+        <span class="mark__word">Highwater</span>
+      </a>
+      <p class="foot__tag">Read the river. Then run it.</p>
+    </div>
+    <div class="foot__col">
+      <h2 class="foot__h">Basecamp</h2>
+      <p>7420 W US Highway 50<br>Salida, CO 81201</p>
+      <p><a href="tel:+17195550148">(719) 555-0148</a><br><a href="mailto:trips@highwaterrafting.example">trips@highwaterrafting.example</a></p>
+    </div>
+    <div class="foot__col">
+      <h2 class="foot__h">The river</h2>
+      <ul class="foot__list">
+        <li><a href="/trips">Trips &amp; prices</a></li>
+        <li><a href="/safety">Safety &amp; gear</a></li>
+        <li><a href="/guides">Guides</a></li>
+        <li><a href="/visit">Basecamp &amp; hours</a></li>
+      </ul>
+    </div>
+    <div class="foot__col">
+      <h2 class="foot__h">Season</h2>
+      <p>15 May – 31 August</p>
+      <p class="muted">Basecamp is staffed 15 May to 31 August. Off-season, leave a message and we call back within a day.</p>
+    </div>
+  </div>
+  <div class="wrap foot__base">
+    <p>&copy; 2026 Highwater Rafting Co. · Salida, Colorado</p>
+    <p class="foot__status">Fictional outfitter and placeholder details. Concept site.</p>
+  </div>
+</footer>
+
+<script src="/js/site.js" defer></script>
+</body>
+</html>

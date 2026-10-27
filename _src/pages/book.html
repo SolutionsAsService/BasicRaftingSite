@@ -1,0 +1,100 @@
+<!-- title: Book a trip -->
+<!-- description: Choose a trip, a date and a party size and see the total before you call. Booking form for Highwater Rafting Co., Salida, Colorado. -->
+
+<section class="band band--stone" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Season {{season}}</p>
+      <h1>Book a trip</h1>
+      <p class="lede">Pick a trip and a party size and we will add it up on the spot. To hold a date for real, call <a href="{{phoneHref}}">{{phone}}</a> — that is the fastest way and the only one that reaches a person today.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--stone">
+  <div class="wrap split">
+    <form class="form" id="booking" novalidate>
+      <fieldset>
+        <legend>The trip</legend>
+        <div class="field">
+          <label for="trip">Which trip</label>
+          <select id="trip" name="trip" required aria-describedby="trip-hint trip-err">
+            <option value="">Choose a trip</option>
+            {{tripOptions}}
+          </select>
+          <p class="hint" id="trip-hint">Prices are per person. Minimum ages are on the trips page.</p>
+          <p class="err" id="trip-err" aria-live="polite"></p>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required aria-describedby="date-err">
+            <p class="err" id="date-err" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="guests">How many</label>
+            <input type="number" id="guests" name="guests" min="1" max="24" step="1" value="2" required aria-describedby="guests-err">
+            <p class="err" id="guests-err" aria-live="polite"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Who to call back</legend>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-err">
+          <p class="err" id="name-err" aria-live="polite"></p>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-err">
+            <p class="err" id="email-err" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" required aria-describedby="phone-err">
+            <p class="err" id="phone-err" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="notes">Anything we should know</label>
+          <textarea id="notes" name="notes" rows="3" aria-describedby="notes-hint"></textarea>
+          <p class="hint" id="notes-hint">Medical conditions, swimming confidence, a dog, a PFD size outside the usual range.</p>
+        </div>
+      </fieldset>
+
+      <div>
+        <button class="btn btn--solid btn--wide" type="submit">Add it up</button>
+        <p class="hint" style="margin-top:0.6rem">Nothing is charged here and nothing is sent to a booking system.</p>
+      </div>
+    </form>
+
+    <div>
+      <div class="receipt" id="receipt" hidden role="region" aria-labelledby="receipt-h" aria-live="polite" tabindex="-1">
+        <p class="receipt__h" id="receipt-h">Your trip</p>
+        <p class="receipt__line" id="receipt-line"></p>
+        <p class="receipt__sum" id="receipt-sum"></p>
+        <p class="muted" id="receipt-note"></p>
+      </div>
+      <div style="margin-top:1.5rem">
+        <p class="eyebrow">Straight to a person</p>
+        <p class="prose" style="font-size:1.375rem;font-weight:600;margin-bottom:0.25rem"><a href="{{phoneHref}}">{{phone}}</a></p>
+        <p class="prose muted">Seven days a week in season. If we miss you, we call back the same day.</p>
+        <p class="prose"><a href="mailto:{{email}}">{{email}}</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--gorge">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Before you choose a date</p>
+      <h2>Check the gauge first</h2>
+      <p class="prose">Runoff peaks {{peak}}. {{peakNote}} Pick the trip for the water, not the date, and ask us to move you if the reading moves.</p>
+    </div>
+    {{gauge}}
+  </div>
+</section>

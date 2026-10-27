@@ -1,0 +1,59 @@
+{
+  "status": "concept",
+  "statusNote": "Fictional outfitter and placeholder details. Concept site.",
+  "name": "Highwater Rafting Co.",
+  "shortName": "Highwater",
+  "legal": "Highwater Rafting Co. LLC",
+  "tagline": "Read the river. Then run it.",
+  "place": "Salida, Colorado",
+  "river": "the Arkansas River",
+  "founded": 1998,
+  "phone": "(719) 555-0148",
+  "phoneHref": "tel:+17195550148",
+  "email": "trips@highwaterrafting.example",
+  "basecamp": {
+    "name": "Basecamp",
+    "line1": "7420 W US Highway 50",
+    "line2": "Salida, CO 81201",
+    "note": "Two miles west of downtown Salida, on the river side of the highway. Look for the orange flag."
+  },
+  "hours": [
+    { "days": "Mon–Fri", "time": "7:00 am – 7:00 pm" },
+    { "days": "Sat–Sun", "time": "6:30 am – 8:00 pm" }
+  ],
+  "seasonNote": "Basecamp is staffed 15 May to 31 August. Off-season, leave a message and we call back within a day.",
+  "season": {
+    "start": "15 May",
+    "end": "31 August",
+    "from": "05-15",
+    "to": "08-31",
+    "peak": "early June",
+    "peakNote": "Runoff peaks in early June: the water is high, cold and fast. Pine Creek closes first; the Gorge opens last."
+  },
+  "gauge": {
+    "name": "Arkansas River at Salida",
+    "reading": 2480,
+    "unit": "cfs",
+    "observed": "11 Jun 2026",
+    "status": "sample",
+    "scaleMin": 0,
+    "scaleMax": 6000,
+    "bands": [
+      { "label": "low", "to": 700 },
+      { "label": "running", "to": 3200 },
+      { "label": "high", "to": 6000 }
+    ],
+    "source": "USGS 07091200 (Arkansas River at Salida, CO)"
+  },
+  "promise": [
+    { "n": "28", "label": "seasons on this river" },
+    { "n": "6", "label": "guided trips, one river" },
+    { "n": "0", "label": "dams. It runs free." }
+  ],
+  "creds": [
+    "Licensed Colorado river outfitter",
+    "Every guide current in Wilderness First Responder",
+    "Every guide current in Swiftwater Rescue Technician",
+    "US Coast Guard-approved PFD and helmet on every seat, every trip"
+  ]
+}

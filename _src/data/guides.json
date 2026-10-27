@@ -1,0 +1,38 @@
+[
+  {
+    "id": "wes",
+    "name": "Wes Nakai",
+    "role": "Lead guide",
+    "years": 21,
+    "favourite": "Browns Canyon",
+    "certs": ["WFR", "SRT-Advanced", "Leave No Trace Master"],
+    "line": "Started as a boatman in '04 and has not missed a season since. Reads water two rapids ahead and calls it out loud so you learn to see it too."
+  },
+  {
+    "id": "mari",
+    "name": "Marisol Ortega",
+    "role": "Guide trainer",
+    "years": 14,
+    "favourite": "The Numbers",
+    "certs": ["WFR", "SRT-Advanced", "Swiftwater Rescue Instructor"],
+    "line": "Trains every guide we hire, which is why our safety talk sounds the same whichever boat you draw. Teaches the paddle command before she teaches the stroke."
+  },
+  {
+    "id": "dewey",
+    "name": "Dewey Hartman",
+    "role": "Gorge guide",
+    "years": 9,
+    "favourite": "Royal Gorge",
+    "certs": ["WFR", "SRT-Advanced", "EMT-B"],
+    "line": "Runs the biggest water we offer and the only guide who will tell you a trip is above your level. Also the one who packs the extra dry bag."
+  },
+  {
+    "id": "priya",
+    "name": "Priya Raman",
+    "role": "Guide, kayak instructor",
+    "years": 6,
+    "favourite": "Pine Creek",
+    "certs": ["WFR", "SRT", "ACA Kayak Instructor"],
+    "line": "Came down from the kayak side and still paddles every run she guides before the season opens. The person to ask if you want to learn to roll."
+  }
+]
