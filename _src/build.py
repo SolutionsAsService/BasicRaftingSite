@@ -275,7 +275,7 @@ def tokens():
         "{{seasonNote}}": e(o["seasonNote"]),
         "{{statusNote}}": e(o["statusNote"]),
         "{{promise}}": "".join(
-            f'<div class="stat"><b>{e(p["n"])}</b><span>{e(p["label"])}</span></div>'
+            f'<li class="stat"><b>{e(p["n"])}</b><span>{e(p["label"])}</span></li>'
             for p in o["promise"]),
         "{{year}}": "2026",
     }
